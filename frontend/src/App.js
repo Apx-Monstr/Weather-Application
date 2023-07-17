@@ -3,21 +3,17 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-slate-950 h-[100vh] flex justify-items-center">
+		<div className = "bg-slate-900 max-w-[500px] w-[500px] h-[85vh] m-auto rounded">
+			<div className = "text-white pop w-full flex align-items-center flex-col gap-4">
+				<div className = "text-4xl text-center bg-red-500 py-4">
+					Weather App
+				</div>
+                <div className = "bg-blue-500">
+                    Hello
+                </div>
+			</div>
+		</div>
     </div>
   );
 }
