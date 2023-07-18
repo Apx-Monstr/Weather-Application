@@ -1,14 +1,16 @@
 const express = require('express');
 const axios = require("axios");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 const PORT = 8080;
 const KEY = "f1f0698ed56d5c77a1fe1b2dbeaded58"
 
 app.get("/getWeather", (req,res)=>{
     const reqData = req.body;
-    // console.log(reqData.cities);
+    console.log(reqData);
     cities = reqData.cities;
     const data = {"weather":{}};
     if (cities.length > 0){
