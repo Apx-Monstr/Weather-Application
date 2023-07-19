@@ -7,25 +7,31 @@ import axios from 'axios';
 
 function App() {
     const [inputvalue, setInputValue] = useState('');
-    const [cityList, setCityList] = useState([]);
-    const [weather, setWeather] = useState({});
-    
+    const [res, setRes] = useState([]);
+    const [temperature, setTemp] = useState([]);
+    let data = {"weather":{}}
     const onInputChange = (event) =>{
         setInputValue(event.target.value);
     }
 
     const onSubmit = (event) =>{
+        event.preventDefault();
         const vals = inputvalue.split(",");
-        setCityList((prevItems) => [...prevItems, ...vals]);
-        fetchWeather();
+        fetchWeather(vals);
         setInputValue('');
     }
 
-    const fetchWeather = ()=>{
-        console.log(cityList)
-        axios.get("http://localhost:8080/getWeather", {cities:"London"})
+    const fetchWeather = (cityList)=>{
+        const body = {
+            "cities":cityList
+        };
+        // console.log(body);
+        axios.post(`http://localhost:8080/getWeather`, body)
         .then((response)=>{
-            console.log(response.data);
+            data = response.data;
+            setRes(Object.keys(data.weather));
+            setTemp(Object.values(data.weather));
+            console.log(data);
         })
         .catch((response)=>{
             console.log("Error Occured")
@@ -39,16 +45,11 @@ function App() {
 				<div className = "text-6xl text-center p-8">
 					Weather App
 				</div>
-                {/* <ul>
-        {cityList.map((item, index) => (
-        <li key={index}>{item}</li>
-        ))}
-    </ul> */}
                 <div className = "p-10 flex-row flex gap-10 overflow-x-auto object-contain">
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
+                    {res.map((value, index) => {
+                        return <Card key={index} city = {value} temp ={temperature[index]}/>
+                        // return index + " " + value + " " + temp
+                    })}
                 </div>
                 <div className = "">
                     <div className= "flex text-xl">
