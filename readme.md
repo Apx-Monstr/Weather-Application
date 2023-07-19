@@ -1,6 +1,37 @@
-# Assignment
+# Weather Application
 
-## Problem Statement (Backend Assignment)
+## Description
 
-1. Create an express based node.js server with below requirements. The API should accept names of multiple cities as input and fetch real time weather from any weather API's and respond with real time weather results. Create a POST endpoint /getWeather which accepts the name of the cities as POST body params Example Input { "cities": [ "toronto", "mumbai", "london" ] } Example Output { "weather": { "toronto": "24C", "mumbai": "34C", "london": "14C" } }.
-2. Bonus Create a simple UI app which accepts the names of the cities as input in a text box and makes a call to the API endpoint created in #1 and also displays the result in the UI. Please push your code to either github or gitlab and send the workable link.
+It is a weather application, with an api server(backend) which responds to users Get requests, by fetching the current temperature from openweatherAPI, which is then reflected on frontend, which is built using React, and backend uses express.js for REST API.
+
+Request Format (Server)
+{"cities":["Ohio", "Paris", "Mumbai"]}
+
+Server Response
+{"weather":{"Ohio":"24C", "Paris":"23C","Mumbai":"34C"}}
+
+Inorder to run the backend
+```cmd
+git clone <this repo>
+
+cd backend
+
+npm install
+
+node .
+```
+
+In order to run Frontend
+```cmd
+git clone <this repo>
+
+cd frontend
+
+npm install
+
+npm start
+```
+
+The backend Server will run on localhost:8080 and frontend will run on localhost:3000
+
+Happy Coding!!!
