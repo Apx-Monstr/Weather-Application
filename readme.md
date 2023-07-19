@@ -32,6 +32,8 @@ npm install
 npm start
 ```
 
+![Alt Frontend Screenshot](https://i.ibb.co/hMQgn1J/weatherapp.png)
+
 The backend Server will run on localhost:8080 and frontend will run on localhost:3000
 
 Happy Coding!!!
